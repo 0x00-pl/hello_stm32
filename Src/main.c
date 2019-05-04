@@ -20,7 +20,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include <string.h>
 #include "my_code.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -113,12 +112,7 @@ int main(void)
   while (1)
   {
 	    /* USER CODE END WHILE */
-		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-		  uint32_t val = get_temperature(&hadc1);
-		  char buff[1024];
-		  sprintf(buff, "hello: %ld\n", val);
-		  HAL_UART_Transmit(&huart1, (uint8_t*)buff, strlen(buff), 1000);
-		  HAL_Delay(1000);
+	  	  loop(&hadc1, &huart1);
 	    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
